@@ -9,7 +9,7 @@ public class CaixaAutomatico {
         Scanner in = new Scanner(System.in);
 
         try {
-            String ip = "127.0.0.1";
+            String ip = "localhost";
             Registry registry = LocateRegistry.getRegistry(ip, 1099);
             BancoService banco = (BancoService) registry.lookup("BancoService");
 
@@ -32,7 +32,7 @@ public class CaixaAutomatico {
                     int numeroContaSacar = in.nextInt();
                     System.out.println("Digite o valor de saque:");
                     double valorSaque = in.nextDouble();
-                    banco.depositar(numeroContaSacar, valorSaque);
+                    banco.sacar(numeroContaSacar, valorSaque);
                     System.out.println(valorSaque + " sacado da conta " + numeroContaSacar);
                 } else if (operacao == 3) {
                     System.out.println("Digite o numero da conta para consultar saldo:");
